@@ -1,0 +1,22 @@
+*{border:1px solid black}
+
+.prime{
+
+  padding:100px;
+  background-color: grey;
+
+}
+
+.container{
+
+  padding: 50px;
+  background-color:greenyellow;
+  
+  }
+
+  .box{
+
+padding: 50px;
+background-color: hotpink;
+
+  }
