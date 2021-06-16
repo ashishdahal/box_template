@@ -4,54 +4,39 @@ document.addEventListener("DOMContentLoaded",()=>{
 //const container = {"items":[{"type":box}]};
 //let data = JSON.parse(JSON.stringify(container));
 
-const BuildButtonTemplate = `<button id="build" class = "build">build</button>`
+const templateContainer = ` <container id ="container" class = "container">container
 
-const CbuttonTemplate = `<button id="buildContainer" class="buildContainer">buildContainer</button>`
+<button id = "buttonContainer">buttonContainer</button>
+<button id = "buttonBox" class = "buttons">buttonBox</button>
 
-const BbuttonTemplate = `<button id="buildBox" class="buildBox">buildBox</button>`
+</container>`
+const templateBox = `<div id = "box" class ="box">box</div>`
 
-const containerTemplate = `<div id="containerTemplate" class = "container">container
-</div>`
+function buildBox(){
 
-const boxTemplate =`<div id="boxTemplate" class = "box">box</div>`
-
-document.getElementById("prime").innerHTML += BuildButtonTemplate;
-
-function buildButtons(){
-  document.getElementById("prime").innerHTML += containerTemplate;
-  document.getElementById("containerTemplate").innerHTML += CbuttonTemplate;
-  document.getElementById("containerTemplate").innerHTML += BbuttonTemplate;
-
-  function bldCon(){
-    document.getElementById("containerTemplate").innerHTML += containerTemplate;
-    
-    }
-    
-    document.getElementById("buildContainer").addEventListener("click", bldCon);
-
-
-    function bldBox(){
-     document.getElementById("containerTemplate").innerHTML += boxTemplate;
-    }
-
-    document.getElementById("buildBox").addEventListener("click", bldBox);
-
+  document.getElementById("container").innerHTML += templateBox;
 
 }
 
-    document.getElementById("build").addEventListener("click", buildButtons);
 
 
+function buildContainer(){
+
+  document.getElementById("container").innerHTML += templateContainer;
 
 
+  var item = document.getElementsByTagName("container")[0];
+
+  item.getElementsByTagName("button")[1].addEventListener("click",buildBox)
+
+  item.getElementsByTagName("button")[0].addEventListener("click",buildContainer)
+
+}
 
 
+document.getElementById("buttonBox").addEventListener("click",buildBox)
 
-
-console.log(data.items[1])
-
-
-
+document.getElementById("buttonContainer").addEventListener("click",buildContainer)
 
 
 })
